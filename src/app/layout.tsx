@@ -18,8 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
-        <Layout>{children}</Layout>
+      <body className={`${poppins.className}`}>
+        <Layout>
+          <div className="w-full bg-blue-500">{children}</div>
+        </Layout>
       </body>
     </html>
   );
