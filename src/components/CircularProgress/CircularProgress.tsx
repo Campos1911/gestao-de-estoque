@@ -8,15 +8,19 @@ const CircularProgress = ({
   corHex,
   tema,
   porcentagem,
+  width,
+  height,
 }: {
   corHex: string;
   tema: string;
   porcentagem: number;
+  width: string;
+  height: string;
 }) => {
   return (
     <section className="flex flex-col items-center">
       <CircularProgressbarWithChildren
-        className="w-28 h-28"
+        className={`${width} ${height}`}
         value={porcentagem}
         strokeWidth={12}
         styles={buildStyles({
@@ -25,7 +29,7 @@ const CircularProgress = ({
           trailColor: "#d6d6d6",
         })}
       >
-        <p className={`text-xl text-[${corHex}]`}>{porcentagem}%</p>
+        <p className={`text-xl font-bold text-[${corHex}]`}>{porcentagem}%</p>
       </CircularProgressbarWithChildren>
       <p>{tema}</p>
     </section>
