@@ -9,7 +9,7 @@ const Sidebar = () => {
   const [width, setWidth] = useState<string>("w-16");
   return (
     <div
-      className={`bg-blue-500 sticky text-white ${width} duration-300 flex flex-col h-full pt-10`}
+      className={`bg-blue-500 sticky text-white ${width} duration-500 ease-out flex justify-end h-full pt-10`}
       onMouseEnter={() => setWidth("w-60")}
       onMouseLeave={() => setWidth("w-16")}
     >
