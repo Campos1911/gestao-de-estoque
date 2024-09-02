@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import NavItem from "./NavItem";
 import { FaHouseChimney } from "react-icons/fa6";
+import { AiFillProduct } from "react-icons/ai";
 import { NavsProps } from "@/@types";
 
 const Sidebar = () => {
@@ -20,6 +21,7 @@ const Sidebar = () => {
             width={width}
             NavIcon={navs.icon}
             link={navs.link}
+            titulo={navs.titulo}
           />
         ))}
       </div>
@@ -33,13 +35,16 @@ const navs: NavsProps[] = [
   {
     icon: FaHouseChimney,
     link: "/",
+    titulo: "Início",
+  },
+  {
+    icon: AiFillProduct,
+    link: "/estoque",
+    titulo: "Estoque",
   },
   {
     icon: FaHouseChimney,
     link: "/",
-  },
-  {
-    icon: FaHouseChimney,
-    link: "/",
+    titulo: "Início",
   },
 ];

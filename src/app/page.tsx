@@ -9,16 +9,17 @@ export default function Home() {
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <div className="w-full">
         <p className="text-2xl">Seja bem-vindo, Usuário123!</p>
-        <p className="text-lg text-gray-400">
-          Você está olhando o estoque da loja 1!
-        </p>
+        <div className="text-lg text-gray-400 flex gap-1">
+          Você está olhando o estoque da{" "}
+          <p className="text-blue-500">loja 1!</p>
+        </div>
       </div>
       <div className="flex w-full py-5 justify-between">
         {cardInfos.map((dados, index) => (
           <CardDashboard key={index} titulo={dados.titulo} dado={dados.dado} />
         ))}
       </div>
-      <div className="border-2 p-5 rounded-lg shadow-lg w-full flex">
+      <div className="border-2 border-blue-500 p-5 rounded-lg shadow-lg w-full flex">
         <div className="flex justify-between w-full">
           {circularInfos.map((dados, index) => (
             <CircularProgress
