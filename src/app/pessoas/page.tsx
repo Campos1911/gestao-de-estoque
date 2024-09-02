@@ -1,10 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CardFuncionarios } from "@/components/Card";
+import { FuncionariosProps } from "@/@types";
 
 const Pessoas = () => {
+  const [pessoas, setPessoas] = useState<FuncionariosProps[]>([]);
+  useEffect(() => {
+    setPessoas(funcionarios);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [funcionarios]);
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <p className="text-2xl">Gerenciar Pessoas</p>
@@ -21,9 +27,10 @@ const Pessoas = () => {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="gerencia" className="w-full grid grid-cols-3 gap-3">
-          {funcionarios.map((func, index) => (
+          {pessoas.map((func, index) => (
             <CardFuncionarios key={index} nome={func.nome} cargo={func.cargo} />
           ))}
+          <CardFuncionarios nome="Adicionar novo funcionário" />
         </TabsContent>
         <TabsContent value="clientes">Change your password here.</TabsContent>
       </Tabs>

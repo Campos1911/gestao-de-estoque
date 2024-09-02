@@ -5,3 +5,8 @@ export interface NavsProps {
   link: string;
   titulo: string;
 }
+
+export interface FuncionariosProps {
+  nome: string;
+  cargo: string;
+}
