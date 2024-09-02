@@ -1,6 +1,7 @@
 "use client";
 
-import CircularProgress from "@/components/CircularProgress/CircularProgress";
+import { CardDashboard } from "@/components/Card";
+import { CircularProgress } from "@/components/CircularProgress";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function Home() {
@@ -12,39 +13,67 @@ export default function Home() {
           Você está olhando o estoque da loja 1!
         </p>
       </div>
-      <div className="w-full flex flex-col gap-10 p-5 rounded-xl bg-gray-100 shadow-lg">
-        <p className="text-2xl">Análise geral:</p>
+      <div className="flex w-full py-5 justify-between">
+        {cardInfos.map((dados, index) => (
+          <CardDashboard key={index} titulo={dados.titulo} dado={dados.dado} />
+        ))}
+      </div>
+      <div className="border-2 p-5 rounded-lg shadow-lg w-full flex">
         <div className="flex justify-between w-full">
-          <CircularProgress
-            corHex="#3b82f6"
-            tema="Presença"
-            porcentagem={30}
-            width="w-44"
-            height="h-44"
-          />
-          <CircularProgress
-            corHex="#9333ea"
-            tema="Vendas"
-            porcentagem={30}
-            width="w-44"
-            height="h-44"
-          />
-          <CircularProgress
-            corHex="#c2410c"
-            tema="Seguidores"
-            porcentagem={30}
-            width="w-44"
-            height="h-44"
-          />
-          <CircularProgress
-            corHex="#15803d"
-            tema="Meta Anual"
-            porcentagem={30}
-            width="w-44"
-            height="h-44"
-          />
+          {circularInfos.map((dados, index) => (
+            <CircularProgress
+              key={index}
+              corHex={dados.corHex}
+              tema={dados.tema}
+              porcentagem={dados.porcentagem}
+              width="w-44"
+              height="h-44"
+            />
+          ))}
         </div>
       </div>
     </div>
   );
 }
+
+const circularInfos = [
+  {
+    corHex: "#3b82f6",
+    tema: "Presença",
+    porcentagem: 30,
+  },
+  {
+    corHex: "#9333ea",
+    tema: "Vendas",
+    porcentagem: 30,
+  },
+  {
+    corHex: "#c2410c",
+    tema: "Seguidores",
+    porcentagem: 30,
+  },
+  {
+    corHex: "#15803d",
+    tema: "Meta Anual",
+    porcentagem: 30,
+  },
+];
+
+const cardInfos = [
+  {
+    titulo: "Valor em caixa",
+    dado: "R$15.000,00",
+  },
+  {
+    titulo: "Qtd. colaboradores",
+    dado: "120",
+  },
+  {
+    titulo: "Última venda",
+    dado: "R$150,00",
+  },
+  {
+    titulo: "NPS",
+    dado: "85",
+  },
+];
