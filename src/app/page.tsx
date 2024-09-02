@@ -39,17 +39,17 @@ export default function Home() {
 const circularInfos = [
   {
     corHex: "#3b82f6",
-    tema: "Presença",
+    tema: "Presença hoje",
     porcentagem: 30,
   },
   {
     corHex: "#9333ea",
-    tema: "Vendas",
+    tema: "Meta de Vendas (mês)",
     porcentagem: 30,
   },
   {
     corHex: "#c2410c",
-    tema: "Seguidores",
+    tema: "Meta de Seguidores (mês)",
     porcentagem: 30,
   },
   {
