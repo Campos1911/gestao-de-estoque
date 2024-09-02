@@ -18,14 +18,13 @@ const CircularProgress = ({
   height: string;
 }) => {
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center gap-2">
       <CircularProgressbarWithChildren
         className={`${width} ${height}`}
         value={porcentagem}
         strokeWidth={12}
         styles={buildStyles({
           pathColor: `${corHex}`,
-          textColor: `${corHex}`,
           trailColor: "#d6d6d6",
         })}
       >
