@@ -9,10 +9,10 @@ export default function Home() {
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <div className="w-full">
         <p className="text-2xl">Seja bem-vindo, Usuário123!</p>
-        <p className="text-lg text-gray-400 flex gap-1">
+        <div className="text-lg text-gray-400 flex gap-1">
           Você está olhando o estoque da{" "}
           <p className="text-blue-500">loja 1!</p>
-        </p>
+        </div>
       </div>
       <div className="flex w-full py-5 justify-between">
         {cardInfos.map((dados, index) => (
