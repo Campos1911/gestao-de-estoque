@@ -5,6 +5,7 @@ import NavItem from "./NavItem";
 import { FaHouseChimney } from "react-icons/fa6";
 import { AiFillProduct } from "react-icons/ai";
 import { NavsProps } from "@/@types";
+import { BsFillPeopleFill } from "react-icons/bs";
 
 const Sidebar = () => {
   const [width, setWidth] = useState<string>("w-16");
@@ -43,8 +44,8 @@ const navs: NavsProps[] = [
     titulo: "Estoque",
   },
   {
-    icon: FaHouseChimney,
-    link: "/",
-    titulo: "Início",
+    icon: BsFillPeopleFill,
+    link: "/pessoas",
+    titulo: "Pessoas",
   },
 ];
