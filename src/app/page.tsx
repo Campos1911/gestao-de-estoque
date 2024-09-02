@@ -10,7 +10,7 @@ export default function Home() {
       <div className="w-full">
         <p className="text-2xl">Seja bem-vindo, Usuário123!</p>
         <div className="text-lg text-gray-400 flex gap-1">
-          Você está olhando o estoque da{" "}
+          Você está olhando o sistema da{" "}
           <p className="text-blue-500">loja 1!</p>
         </div>
       </div>

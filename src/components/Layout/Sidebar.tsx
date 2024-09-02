@@ -45,7 +45,7 @@ const navs: NavsProps[] = [
   },
   {
     icon: BsFillPeopleFill,
-    link: "/funcionarios",
-    titulo: "Funcionários",
+    link: "/pessoas",
+    titulo: "Pessoas",
   },
 ];
