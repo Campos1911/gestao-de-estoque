@@ -28,7 +28,7 @@ const CardProdutos = ({
     <Link
       href={"http://google.com"}
       target="blank"
-      className="flex w-full items-center justify-between border rounded-md px-3 py-5 shadow-lg cursor-pointer hover:bg-gray-300 duration-200"
+      className="flex w-full items-center justify-between border border-blue-500 rounded-md px-3 py-5 shadow-lg cursor-pointer hover:bg-gray-300 duration-200"
     >
       <div
         className={`flex rounded-full ${cor} w-10 h-10 items-center justify-center`}

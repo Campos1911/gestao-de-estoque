@@ -19,7 +19,7 @@ export default function Home() {
           <CardDashboard key={index} titulo={dados.titulo} dado={dados.dado} />
         ))}
       </div>
-      <div className="border-2 border-blue-500 p-5 rounded-lg shadow-lg w-full flex">
+      <div className="border border-blue-500 p-5 rounded-lg shadow-lg w-full flex">
         <div className="flex justify-between w-full">
           {circularInfos.map((dados, index) => (
             <CircularProgress
@@ -74,7 +74,7 @@ const cardInfos = [
     dado: "R$150,00",
   },
   {
-    titulo: "NPS",
-    dado: "85",
+    titulo: "Sua permissão",
+    dado: "Admin",
   },
 ];
