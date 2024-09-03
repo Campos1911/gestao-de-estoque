@@ -2,14 +2,8 @@ import Link from "next/link";
 import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 
-const CardFuncionarios = ({
-  nome,
-  cargo,
-}: {
-  nome: string;
-  cargo?: string;
-}) => {
-  if (nome === "Adicionar novo funcionário") {
+const CardClientes = ({ nome, regiao }: { nome: string; regiao?: string }) => {
+  if (nome === "Adicionar novo cliente") {
     return (
       <Link
         href={"http://google.com"}
@@ -32,10 +26,10 @@ const CardFuncionarios = ({
       </div>
       <div>
         <p className="group-hover:text-white">{nome}</p>
-        <p className="text-gray-400 text-sm group-hover:text-white">{cargo}</p>
+        <p className="text-gray-400 text-sm group-hover:text-white">{regiao}</p>
       </div>
     </div>
   );
 };
 
-export default CardFuncionarios;
+export default CardClientes;
