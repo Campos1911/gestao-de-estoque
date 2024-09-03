@@ -10,3 +10,8 @@ export interface FuncionariosProps {
   nome: string;
   cargo: string;
 }
+
+export interface ClientesProps {
+  nome: string;
+  regiao: string;
+}

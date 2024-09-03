@@ -2,23 +2,25 @@
 
 import React, { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CardFuncionarios } from "@/components/Card";
-import { FuncionariosProps } from "@/@types";
+import { CardClientes, CardFuncionarios } from "@/components/Card";
+import { ClientesProps, FuncionariosProps } from "@/@types";
 
 const Pessoas = () => {
   const [pessoas, setPessoas] = useState<FuncionariosProps[]>([]);
+  const [clientes, setClientes] = useState<ClientesProps[]>([]);
   useEffect(() => {
     setPessoas(funcionarios);
+    setClientes(clientesDb);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [funcionarios]);
+  }, [funcionarios, clientesDb]);
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <p className="text-2xl">Gerenciar Pessoas</p>
       <Tabs
         defaultValue="gerencia"
-        className="flex flex-col w-full justify-center items-center gap-5"
+        className="flex flex-col w-full justify-center items-center"
       >
-        <TabsList className="w-full py-7">
+        <TabsList className="w-full py-7 mb-7">
           <TabsTrigger className="w-[80%] py-3" value="gerencia">
             Gerência
           </TabsTrigger>
@@ -32,7 +34,12 @@ const Pessoas = () => {
             <CardFuncionarios key={index} nome={func.nome} cargo={func.cargo} />
           ))}
         </TabsContent>
-        <TabsContent value="clientes">Change your password here.</TabsContent>
+        <TabsContent value="clientes" className="w-full grid grid-cols-3 gap-3">
+          <CardClientes nome="Adicionar novo cliente" />
+          {clientes.map((func, index) => (
+            <CardClientes key={index} nome={func.nome} regiao={func.regiao} />
+          ))}
+        </TabsContent>
       </Tabs>
     </div>
   );
@@ -56,5 +63,24 @@ const funcionarios = [
   {
     nome: "Repositor 2",
     cargo: "Repositor",
+  },
+];
+
+const clientesDb = [
+  {
+    nome: "Cliente 1",
+    regiao: "Região 1",
+  },
+  {
+    nome: "Cliente 2",
+    regiao: "Região 2",
+  },
+  {
+    nome: "Cliente 3",
+    regiao: "Região 3",
+  },
+  {
+    nome: "Cliente 4",
+    regiao: "Região 4",
   },
 ];
