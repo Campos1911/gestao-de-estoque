@@ -15,3 +15,26 @@ export interface ClientesProps {
   nome: string;
   regiao: string;
 }
+
+export interface ProdutosPros {
+  nome: string;
+  valor: string;
+  quantidade: number;
+}
+
+export interface DashboardProps {
+  titulo: string;
+  dado: string;
+}
+
+export interface GraficosProps {
+  corHex: string;
+  tema: string;
+  porcentagem: number;
+}
+
+export interface UserProps {
+  nome: string;
+  email: string;
+  permissao: string;
+}

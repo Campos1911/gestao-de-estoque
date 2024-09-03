@@ -1,7 +1,18 @@
+"use client";
+
+import { ProdutosPros } from "@/@types";
 import { CardProdutos } from "@/components/Card";
-import React from "react";
+import { METHODS } from "http";
+import React, { useEffect, useState } from "react";
 
 const Estoque = () => {
+  const [produtos, setProdutos] = useState<ProdutosPros[]>([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/produtos")
+      .then((res) => res.json())
+      .then((res) => setProdutos(res));
+  }, []);
+
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <p className="text-2xl">Estoque de Produtos</p>
@@ -20,36 +31,3 @@ const Estoque = () => {
 };
 
 export default Estoque;
-
-const produtos = [
-  {
-    nome: "Nome do produto",
-    quantidade: 100,
-    valor: "R$100,00",
-  },
-  {
-    nome: "Nome do produto",
-    quantidade: 10,
-    valor: "R$100,00",
-  },
-  {
-    nome: "Nome do produto",
-    quantidade: 0,
-    valor: "R$100,00",
-  },
-  {
-    nome: "Nome do produto",
-    quantidade: 10,
-    valor: "R$100,00",
-  },
-  {
-    nome: "Nome do produto",
-    quantidade: 10,
-    valor: "R$100,00",
-  },
-  {
-    nome: "Nome do produto",
-    quantidade: 10,
-    valor: "R$100,00",
-  },
-];

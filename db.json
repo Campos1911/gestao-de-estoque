@@ -1,0 +1,111 @@
+{
+  "produtos": [
+    {
+      "nome": "Nome do produto",
+      "quantidade": 100,
+      "valor": "R$100,00"
+    },
+    {
+      "nome": "Nome do produto",
+      "quantidade": 10,
+      "valor": "R$100,00"
+    },
+    {
+      "nome": "Nome do produto",
+      "quantidade": 0,
+      "valor": "R$100,00"
+    },
+    {
+      "nome": "Nome do produto",
+      "quantidade": 10,
+      "valor": "R$100,00"
+    },
+    {
+      "nome": "Nome do produto",
+      "quantidade": 10,
+      "valor": "R$100,00"
+    },
+    {
+      "nome": "Nome do produto",
+      "quantidade": 10,
+      "valor": "R$100,00"
+    }
+  ],
+  "funcionarios": [
+    {
+      "nome": "Admin 1",
+      "cargo": "Admin"
+    },
+    {
+      "nome": "Gestor 1",
+      "cargo": "Gestor"
+    },
+    {
+      "nome": "Repositor 1",
+      "cargo": "Repositor"
+    },
+    {
+      "nome": "Repositor 2",
+      "cargo": "Repositor"
+    }
+  ],
+  "clientes": [
+    {
+      "nome": "Cliente 1",
+      "regiao": "Região 1"
+    },
+    {
+      "nome": "Cliente 2",
+      "regiao": "Região 2"
+    },
+    {
+      "nome": "Cliente 3",
+      "regiao": "Região 3"
+    },
+    {
+      "nome": "Cliente 4",
+      "regiao": "Região 4"
+    }
+  ],
+  "dashboard": [
+    {
+      "titulo": "Valor em caixa",
+      "dado": "R$15.000,00"
+    },
+    {
+      "titulo": "Qtd. colaboradores",
+      "dado": "120"
+    },
+    {
+      "titulo": "Última venda",
+      "dado": "R$150,00"
+    }
+  ],
+  "graficos": [
+    {
+      "corHex": "#3b82f6",
+      "tema": "Presença hoje",
+      "porcentagem": 30
+    },
+    {
+      "corHex": "#9333ea",
+      "tema": "Meta de Vendas (mês)",
+      "porcentagem": 30
+    },
+    {
+      "corHex": "#c2410c",
+      "tema": "Meta de Seguidores (mês)",
+      "porcentagem": 30
+    },
+    {
+      "corHex": "#15803d",
+      "tema": "Meta Anual",
+      "porcentagem": 30
+    }
+  ],
+  "user": {
+    "nome": "Usuário",
+    "email": "usuario123@teste.com",
+    "permissao": "Admin"
+  }
+}
