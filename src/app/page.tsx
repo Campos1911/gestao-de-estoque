@@ -42,7 +42,7 @@ export default function Home() {
         {dashboard.map((dados, index) => (
           <CardDashboard key={index} titulo={dados.titulo} dado={dados.dado} />
         ))}
-        <CardDashboard titulo="Sua permissão" dado={user.nome} />
+        <CardDashboard titulo="Sua permissão" dado={user.permissao} />
       </div>
       <div className="border border-blue-500 p-5 rounded-lg shadow-lg w-full flex">
         <div className="flex justify-between w-full">
