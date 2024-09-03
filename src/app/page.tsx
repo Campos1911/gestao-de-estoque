@@ -1,10 +1,25 @@
 "use client";
 
+import { DashboardProps, GraficosProps } from "@/@types";
 import { CardDashboard } from "@/components/Card";
 import { CircularProgress } from "@/components/CircularProgress";
+import { useEffect, useState } from "react";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function Home() {
+  const [dashboard, setDashboard] = useState<DashboardProps[]>([]);
+  const [graficos, setGraficos] = useState<GraficosProps[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/dashboard", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => setDashboard(json));
+
+    fetch("http://localhost:3000/graficos", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => setGraficos(json));
+  }, []);
+
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <div className="w-full">
@@ -15,13 +30,13 @@ export default function Home() {
         </div>
       </div>
       <div className="flex w-full py-5 justify-between">
-        {cardInfos.map((dados, index) => (
+        {dashboard.map((dados, index) => (
           <CardDashboard key={index} titulo={dados.titulo} dado={dados.dado} />
         ))}
       </div>
       <div className="border border-blue-500 p-5 rounded-lg shadow-lg w-full flex">
         <div className="flex justify-between w-full">
-          {circularInfos.map((dados, index) => (
+          {graficos.map((dados, index) => (
             <CircularProgress
               key={index}
               corHex={dados.corHex}
@@ -36,45 +51,3 @@ export default function Home() {
     </div>
   );
 }
-
-const circularInfos = [
-  {
-    corHex: "#3b82f6",
-    tema: "Presença hoje",
-    porcentagem: 30,
-  },
-  {
-    corHex: "#9333ea",
-    tema: "Meta de Vendas (mês)",
-    porcentagem: 30,
-  },
-  {
-    corHex: "#c2410c",
-    tema: "Meta de Seguidores (mês)",
-    porcentagem: 30,
-  },
-  {
-    corHex: "#15803d",
-    tema: "Meta Anual",
-    porcentagem: 30,
-  },
-];
-
-const cardInfos = [
-  {
-    titulo: "Valor em caixa",
-    dado: "R$15.000,00",
-  },
-  {
-    titulo: "Qtd. colaboradores",
-    dado: "120",
-  },
-  {
-    titulo: "Última venda",
-    dado: "R$150,00",
-  },
-  {
-    titulo: "Sua permissão",
-    dado: "Admin",
-  },
-];

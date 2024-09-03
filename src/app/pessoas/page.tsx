@@ -9,10 +9,17 @@ const Pessoas = () => {
   const [pessoas, setPessoas] = useState<FuncionariosProps[]>([]);
   const [clientes, setClientes] = useState<ClientesProps[]>([]);
   useEffect(() => {
-    setPessoas(funcionarios);
-    setClientes(clientesDb);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [funcionarios, clientesDb]);
+    fetch("http://localhost:3000/clientes", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => setClientes(json))
+      .catch((err) => alert(err));
+
+    fetch("http://localhost:3000/funcionarios", { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => setPessoas(json))
+      .catch((err) => alert(err));
+  }, []);
+
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <p className="text-2xl">Gerenciar Pessoas</p>
