@@ -4,10 +4,12 @@ import React, { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CardClientes, CardFuncionarios } from "@/components/Card";
 import { ClientesProps, FuncionariosProps } from "@/@types";
+import { Loading } from "@/components/Loading";
 
 const Pessoas = () => {
   const [pessoas, setPessoas] = useState<FuncionariosProps[]>([]);
   const [clientes, setClientes] = useState<ClientesProps[]>([]);
+  const [loaded, setLoaded] = useState<boolean>(false);
   useEffect(() => {
     fetch("http://localhost:3000/clientes", { method: "GET" })
       .then((res) => res.json())
@@ -18,7 +20,13 @@ const Pessoas = () => {
       .then((res) => res.json())
       .then((json) => setPessoas(json))
       .catch((err) => alert(err));
+
+    setLoaded(true);
   }, []);
+
+  if (!loaded) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">

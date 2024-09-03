@@ -3,12 +3,14 @@
 import { DashboardProps, GraficosProps, UserProps } from "@/@types";
 import { CardDashboard } from "@/components/Card";
 import { CircularProgress } from "@/components/CircularProgress";
+import { Loading } from "@/components/Loading";
 import { useEffect, useState } from "react";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function Home() {
   const [dashboard, setDashboard] = useState<DashboardProps[]>([]);
   const [graficos, setGraficos] = useState<GraficosProps[]>([]);
+  const [loaded, setLoaded] = useState<boolean>(false);
   const [user, setUser] = useState<UserProps>({
     nome: "",
     email: "",
@@ -27,7 +29,13 @@ export default function Home() {
     fetch("http://localhost:3000/user", { method: "GET" })
       .then((res) => res.json())
       .then((json) => setUser(json));
+
+    setLoaded(true);
   }, []);
+
+  if (!loaded) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
