@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 
@@ -10,14 +11,18 @@ const CardFuncionarios = ({
 }) => {
   if (nome === "Adicionar novo funcionário") {
     return (
-      <div className="border border-blue-500 flex items-center rounded-md p-3 shadow-md cursor-pointer duration-200 group gap-4 bg-blue-500 hover:bg-white">
+      <Link
+        href={"http://google.com"}
+        target="blank"
+        className="border border-blue-500 flex items-center rounded-md p-3 shadow-md cursor-pointer duration-200 group gap-4 bg-blue-500 hover:bg-white"
+      >
         <div className="rounded-full w-10 h-10 flex items-center justify-center text-blue-500 bg-white group-hover:bg-blue-500 group-hover:text-white">
           <FaUserAlt />
         </div>
         <div>
           <p className="text-white group-hover:text-blue-500">{nome}</p>
         </div>
-      </div>
+      </Link>
     );
   }
   return (

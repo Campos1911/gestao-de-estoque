@@ -27,10 +27,10 @@ const Pessoas = () => {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="gerencia" className="w-full grid grid-cols-3 gap-3">
+          <CardFuncionarios nome="Adicionar novo funcionário" />
           {pessoas.map((func, index) => (
             <CardFuncionarios key={index} nome={func.nome} cargo={func.cargo} />
           ))}
-          <CardFuncionarios nome="Adicionar novo funcionário" />
         </TabsContent>
         <TabsContent value="clientes">Change your password here.</TabsContent>
       </Tabs>
