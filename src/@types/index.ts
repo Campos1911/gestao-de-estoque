@@ -32,3 +32,9 @@ export interface GraficosProps {
   tema: string;
   porcentagem: number;
 }
+
+export interface UserProps {
+  nome: string;
+  email: string;
+  permissao: string;
+}
