@@ -28,17 +28,15 @@ const CardProdutos = ({
     <Link
       href={"http://google.com"}
       target="blank"
-      className="flex w-full items-center justify-between border border-blue-500 rounded-md px-3 py-5 shadow-lg cursor-pointer hover:bg-gray-300 duration-200"
+      className="flex w-full items-center justify-between border border-blue-500 rounded-md px-3 py-5 gap-4 shadow-lg cursor-pointer hover:bg-gray-300 duration-200"
     >
       <div
         className={`flex rounded-full ${cor} w-10 h-10 items-center justify-center`}
       >
-        <GoPackage />
+        {quantidade}
       </div>
-      <p className="sm:text-start text-center">
-        {nome} - {valor}
-      </p>
-      <p>{quantidade}</p>
+      <p className="sm:text-start text-center">{nome}</p>
+      <p className="text-center">{valor}</p>
     </Link>
   );
 };

@@ -10,8 +10,32 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { ProdutosPros } from "@/@types";
 
-const CardCreateProduto = () => {
+const CardCreateProduto = ({
+  novoProduto,
+  setNovoProduto,
+  produtos,
+  setProdutos,
+}: {
+  novoProduto: ProdutosPros;
+  setNovoProduto: React.Dispatch<React.SetStateAction<ProdutosPros>>;
+  produtos: ProdutosPros[];
+  setProdutos: React.Dispatch<React.SetStateAction<ProdutosPros[]>>;
+}) => {
+  async function handleCreateProduto() {
+    const dadosParaCriar = {
+      nome: novoProduto.nome,
+      quantidade: novoProduto.quantidade,
+      valor: novoProduto.valor,
+    };
+
+    await fetch("http://localhost:3000/produtos", {
+      method: "POST",
+      body: JSON.stringify(dadosParaCriar),
+    }).then(() => setProdutos([...produtos, novoProduto]));
+  }
+
   return (
     <>
       <Dialog>
@@ -36,24 +60,55 @@ const CardCreateProduto = () => {
                 <div className="flex w-full flex-col">
                   <p>Nome do produto:</p>
                   <input
+                    placeholder="Produto"
                     type="text"
                     className="outline-none border border-blue-500 w-full rounded-md p-1"
+                    onChange={(e) =>
+                      setNovoProduto({
+                        nome: e.target.value,
+                        quantidade: novoProduto.quantidade,
+                        valor: novoProduto.valor,
+                      })
+                    }
                   />
                 </div>
                 <div className="flex w-full flex-col">
                   <p>Quantidade em estoque:</p>
                   <input
+                    placeholder="10"
                     type="number"
                     className="outline-none border border-blue-500 w-full rounded-md p-1"
+                    onChange={(e) =>
+                      setNovoProduto({
+                        nome: novoProduto.nome,
+                        quantidade: e.target.value as unknown as number,
+                        valor: novoProduto.valor,
+                      })
+                    }
                   />
                 </div>
+              </div>
+              <div className="flex w-full flex-col py-2">
+                <p>Valor do produto:</p>
+                <input
+                  placeholder="100.00"
+                  type="number"
+                  className="outline-none border border-blue-500 w-full rounded-md p-1"
+                  onChange={(e) =>
+                    setNovoProduto({
+                      nome: novoProduto.nome,
+                      quantidade: novoProduto.quantidade,
+                      valor: `R$${e.target.value}`,
+                    })
+                  }
+                />
               </div>
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <DialogClose>
               <button
-                onClick={() => console.log("teste")}
+                onClick={() => handleCreateProduto()}
                 className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200"
               >
                 Criar
