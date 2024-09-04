@@ -1,7 +1,7 @@
 "use client";
 
 import { ProdutosPros } from "@/@types";
-import { CardProdutos } from "@/components/Card";
+import { CardCreateProduto, CardProdutos } from "@/components/Card";
 import { Loading } from "@/components/Loading";
 import React, { useEffect, useState } from "react";
 
@@ -23,6 +23,7 @@ const Estoque = () => {
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
       <p className="text-2xl">Estoque de Produtos</p>
       <div className="grid grid-cols-2 gap-6 w-full">
+        <CardCreateProduto />
         {produtos.map((produtos, index) => (
           <CardProdutos
             key={index}
