@@ -10,10 +10,11 @@ const Layout = ({
   return (
     <div>
       <Header />
-      <div className="flex pt-16 min-h-screen">
+      <div className="hidden pt-16 min-h-screen sm:flex">
         <Sidebar />
         {children}
       </div>
+      <div className="sm:hidden">{children}</div>
     </div>
   );
 };

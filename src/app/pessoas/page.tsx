@@ -43,13 +43,19 @@ const Pessoas = () => {
             Clientes
           </TabsTrigger>
         </TabsList>
-        <TabsContent value="gerencia" className="w-full grid grid-cols-3 gap-3">
+        <TabsContent
+          value="gerencia"
+          className="w-full flex flex-col md:grid lg:grid-cols-3 md:grid-cols-2 gap-3"
+        >
           <CardFuncionarios nome="Adicionar novo funcionário" />
           {pessoas.map((func, index) => (
             <CardFuncionarios key={index} nome={func.nome} cargo={func.cargo} />
           ))}
         </TabsContent>
-        <TabsContent value="clientes" className="w-full grid grid-cols-3 gap-3">
+        <TabsContent
+          value="clientes"
+          className="w-full flex flex-col md:grid lg:grid-cols-3 md:grid-cols-2 gap-3"
+        >
           <CardClientes nome="Adicionar novo cliente" />
           {clientes.map((func, index) => (
             <CardClientes key={index} nome={func.nome} regiao={func.regiao} />
@@ -61,41 +67,3 @@ const Pessoas = () => {
 };
 
 export default Pessoas;
-
-const funcionarios = [
-  {
-    nome: "Admin 1",
-    cargo: "Admin",
-  },
-  {
-    nome: "Gestor 1",
-    cargo: "Gestor",
-  },
-  {
-    nome: "Repositor 1",
-    cargo: "Repositor",
-  },
-  {
-    nome: "Repositor 2",
-    cargo: "Repositor",
-  },
-];
-
-const clientesDb = [
-  {
-    nome: "Cliente 1",
-    regiao: "Região 1",
-  },
-  {
-    nome: "Cliente 2",
-    regiao: "Região 2",
-  },
-  {
-    nome: "Cliente 3",
-    regiao: "Região 3",
-  },
-  {
-    nome: "Cliente 4",
-    regiao: "Região 4",
-  },
-];
