@@ -11,6 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ProdutosPros } from "@/@types";
+import { useToast } from "@/hooks/use-toast";
 
 const CardCreateProduto = ({
   novoProduto,
@@ -23,6 +24,8 @@ const CardCreateProduto = ({
   produtos: ProdutosPros[];
   setProdutos: React.Dispatch<React.SetStateAction<ProdutosPros[]>>;
 }) => {
+  const { toast } = useToast();
+
   async function handleCreateProduto() {
     const dadosParaCriar = {
       nome: novoProduto.nome,
@@ -36,7 +39,12 @@ const CardCreateProduto = ({
       dadosParaCriar.quantidade < 0 ||
       dadosParaCriar.quantidade > 9999
     ) {
-      alert("Preencha todos os campos e insira valores válidos");
+      toast({
+        title: "Dados inválidos",
+        variant: "destructive",
+        description:
+          "Confira se todos os campos foram preenchidos ou se a quantidade não ultrapassou o limite (9999)",
+      });
       return null;
     }
 
