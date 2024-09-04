@@ -8,11 +8,41 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { SelectRegiao } from "../Select";
+import { ClientesProps } from "@/@types";
+import { useRouter } from "next/navigation";
 
-const CardClientes = ({ nome, regiao }: { nome: string; regiao?: string }) => {
+const CardClientes = ({
+  nome,
+  regiao,
+  novoCliente,
+  setNovoCliente,
+  clientes,
+  setClientes,
+}: {
+  nome: string;
+  regiao?: string;
+  novoCliente: ClientesProps;
+  setNovoCliente: React.Dispatch<React.SetStateAction<ClientesProps>>;
+  clientes: ClientesProps[];
+  setClientes: React.Dispatch<React.SetStateAction<ClientesProps[]>>;
+}) => {
+  const router = useRouter();
+  const [reloadPage, setReloadPage] = useState<boolean>(true);
+  async function handleCreateCliente() {
+    const dadosParaCriar = {
+      nome: novoCliente.nome,
+      regiao: novoCliente.regiao,
+    };
+
+    await fetch("http://localhost:3000/clientes", {
+      method: "POST",
+      body: JSON.stringify(dadosParaCriar),
+    }).then(() => setClientes([...clientes, novoCliente]));
+  }
+
   if (nome === "Adicionar novo cliente") {
     return (
       <Dialog>
@@ -34,17 +64,28 @@ const CardClientes = ({ nome, regiao }: { nome: string; regiao?: string }) => {
                   <input
                     type="text"
                     name="nome"
-                    id=""
+                    onChange={(e) =>
+                      setNovoCliente({
+                        nome: e.target.value,
+                        regiao: novoCliente.regiao,
+                      })
+                    }
                     className="outline-none border border-blue-500 w-60 rounded-md p-1"
                   />
                 </div>
-                <SelectRegiao />
+                <SelectRegiao
+                  novoCliente={novoCliente}
+                  setNovoCliente={setNovoCliente}
+                />
               </div>
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <DialogClose>
-              <button className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200">
+              <button
+                onClick={() => handleCreateCliente()}
+                className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200"
+              >
                 Criar
               </button>
             </DialogClose>

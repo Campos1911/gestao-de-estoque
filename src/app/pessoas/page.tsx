@@ -9,6 +9,10 @@ import { Loading } from "@/components/Loading";
 const Pessoas = () => {
   const [pessoas, setPessoas] = useState<FuncionariosProps[]>([]);
   const [clientes, setClientes] = useState<ClientesProps[]>([]);
+  const [novoCliente, setNovoCliente] = useState<ClientesProps>({
+    nome: "",
+    regiao: "",
+  });
   const [loaded, setLoaded] = useState<boolean>(false);
   useEffect(() => {
     fetch("http://localhost:3000/clientes", { method: "GET" })
@@ -56,9 +60,23 @@ const Pessoas = () => {
           value="clientes"
           className="w-full flex flex-col md:grid lg:grid-cols-3 md:grid-cols-2 gap-3"
         >
-          <CardClientes nome="Adicionar novo cliente" />
+          <CardClientes
+            nome="Adicionar novo cliente"
+            novoCliente={novoCliente}
+            setNovoCliente={setNovoCliente}
+            clientes={clientes}
+            setClientes={setClientes}
+          />
           {clientes.map((func, index) => (
-            <CardClientes key={index} nome={func.nome} regiao={func.regiao} />
+            <CardClientes
+              key={index}
+              nome={func.nome}
+              regiao={func.regiao}
+              novoCliente={novoCliente}
+              setNovoCliente={setNovoCliente}
+              clientes={clientes}
+              setClientes={setClientes}
+            />
           ))}
         </TabsContent>
       </Tabs>
