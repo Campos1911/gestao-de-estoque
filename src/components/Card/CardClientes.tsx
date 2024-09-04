@@ -23,21 +23,26 @@ const CardClientes = ({
 }: {
   nome: string;
   regiao?: string;
-  novoCliente: ClientesProps;
-  setNovoCliente: React.Dispatch<React.SetStateAction<ClientesProps>>;
-  clientes: ClientesProps[];
-  setClientes: React.Dispatch<React.SetStateAction<ClientesProps[]>>;
+  novoCliente?: ClientesProps;
+  setNovoCliente?: React.Dispatch<React.SetStateAction<ClientesProps>>;
+  clientes?: ClientesProps[];
+  setClientes?: React.Dispatch<React.SetStateAction<ClientesProps[]>>;
 }) => {
   async function handleCreateCliente() {
     const dadosParaCriar = {
-      nome: novoCliente.nome,
-      regiao: novoCliente.regiao,
+      nome: novoCliente?.nome,
+      regiao: novoCliente?.regiao,
     };
 
     await fetch("http://localhost:3000/clientes", {
       method: "POST",
       body: JSON.stringify(dadosParaCriar),
-    }).then(() => setClientes([...clientes, novoCliente]));
+    }).then(() =>
+      setClientes?.([
+        ...(clientes as ClientesProps[]),
+        novoCliente as ClientesProps,
+      ])
+    );
   }
 
   if (nome === "Adicionar novo cliente") {
@@ -62,17 +67,21 @@ const CardClientes = ({
                     type="text"
                     name="nome"
                     onChange={(e) =>
-                      setNovoCliente({
+                      setNovoCliente?.({
                         nome: e.target.value,
-                        regiao: novoCliente.regiao,
+                        regiao: novoCliente?.regiao as string,
                       })
                     }
                     className="outline-none border border-blue-500 w-60 rounded-md p-1"
                   />
                 </div>
                 <SelectRegiao
-                  novoCliente={novoCliente}
-                  setNovoCliente={setNovoCliente}
+                  novoCliente={novoCliente as ClientesProps}
+                  setNovoCliente={
+                    setNovoCliente as React.Dispatch<
+                      React.SetStateAction<ClientesProps>
+                    >
+                  }
                 />
               </div>
             </DialogDescription>

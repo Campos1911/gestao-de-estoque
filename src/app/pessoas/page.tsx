@@ -78,15 +78,7 @@ const Pessoas = () => {
             setClientes={setClientes}
           />
           {clientes.map((func, index) => (
-            <CardClientes
-              key={index}
-              nome={func.nome}
-              regiao={func.regiao}
-              novoCliente={novoCliente}
-              setNovoCliente={setNovoCliente}
-              clientes={clientes}
-              setClientes={setClientes}
-            />
+            <CardClientes key={index} nome={func.nome} regiao={func.regiao} />
           ))}
         </TabsContent>
       </Tabs>
