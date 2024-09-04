@@ -1,13 +1,18 @@
 "use client";
 
 import { ProdutosPros } from "@/@types";
-import { CardProdutos } from "@/components/Card";
+import { CardCreateProduto, CardProdutos } from "@/components/Card";
 import { Loading } from "@/components/Loading";
 import React, { useEffect, useState } from "react";
 
 const Estoque = () => {
   const [produtos, setProdutos] = useState<ProdutosPros[]>([]);
   const [loaded, setLoaded] = useState<boolean>(false);
+  const [novoProduto, setNovoProduto] = useState<ProdutosPros>({
+    nome: "",
+    quantidade: 0,
+    valor: "",
+  });
   useEffect(() => {
     fetch("http://localhost:3000/produtos")
       .then((res) => res.json())
@@ -20,9 +25,15 @@ const Estoque = () => {
   }
 
   return (
-    <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
-      <p className="text-2xl">Estoque de Produtos</p>
-      <div className="grid grid-cols-2 gap-6 w-full">
+    <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 sm:gap-4 gap-4">
+      <p className="text-2xl sm:mt-0 mt-16">Estoque de Produtos</p>
+      <div className="lg:grid flex flex-col grid-cols-2 lg:gap-6 gap-4 w-full">
+        <CardCreateProduto
+          novoProduto={novoProduto}
+          setNovoProduto={setNovoProduto}
+          produtos={produtos}
+          setProdutos={setProdutos}
+        />
         {produtos.map((produtos, index) => (
           <CardProdutos
             key={index}
