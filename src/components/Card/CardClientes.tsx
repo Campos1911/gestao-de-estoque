@@ -24,11 +24,11 @@ const CardClientes = ({ nome, regiao }: { nome: string; regiao?: string }) => {
             <p className="text-white group-hover:text-blue-500">{nome}</p>
           </div>
         </DialogTrigger>
-        <DialogContent>
+        <DialogContent className="w-[80%]">
           <DialogHeader>
             <DialogTitle>Insira as informações do cliente</DialogTitle>
             <DialogDescription className="flex flex-col w-full">
-              <div className="flex w-full items-end justify-between">
+              <div className="flex sm:flex-row flex-col w-full sm:items-end items-center justify-between gap-2 ">
                 <div>
                   <p>Nome do cliente:</p>
                   <input

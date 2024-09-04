@@ -10,7 +10,7 @@ import {
 const SelectCargo = () => {
   return (
     <Select>
-      <SelectTrigger className="w-[40%] border border-blue-500 text-blue-500 outline-none">
+      <SelectTrigger className="sm:w-[42%] w-[60%] border border-blue-500 text-blue-500 outline-none">
         <SelectValue placeholder="Cargo do funcionário" />
       </SelectTrigger>
       <SelectContent>
