@@ -24,7 +24,7 @@ const CardClientes = ({ nome, regiao }: { nome: string; regiao?: string }) => {
             <p className="text-white group-hover:text-blue-500">{nome}</p>
           </div>
         </DialogTrigger>
-        <DialogContent className="w-[80%]">
+        <DialogContent className="w-[90%]">
           <DialogHeader>
             <DialogTitle>Insira as informações do cliente</DialogTitle>
             <DialogDescription className="flex flex-col w-full">
