@@ -35,7 +35,7 @@ const CardProdutos = ({
       >
         <GoPackage />
       </div>
-      <p>
+      <p className="sm:text-start text-center">
         {nome} - {valor}
       </p>
       <p>{quantidade}</p>

@@ -15,7 +15,7 @@ const CardCreateProduto = () => {
   return (
     <>
       <Dialog>
-        <DialogTrigger className="outline-none border border-blue-500 flex justify-between items-center rounded-md p-3 shadow-md cursor-pointer duration-200 group gap-4 bg-blue-500 hover:bg-white">
+        <DialogTrigger className="w-full outline-none border border-blue-500 flex justify-between items-center rounded-md p-3 shadow-md cursor-pointer duration-200 group gap-4 bg-blue-500 hover:bg-white">
           <div
             className={`flex rounded-full bg-white group-hover:bg-blue-500 w-10 h-10 items-center justify-center`}
           >
