@@ -8,11 +8,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { SelectRegiao } from "../Select";
 import { ClientesProps } from "@/@types";
-import { useRouter } from "next/navigation";
 
 const CardClientes = ({
   nome,
@@ -29,8 +28,6 @@ const CardClientes = ({
   clientes: ClientesProps[];
   setClientes: React.Dispatch<React.SetStateAction<ClientesProps[]>>;
 }) => {
-  const router = useRouter();
-  const [reloadPage, setReloadPage] = useState<boolean>(true);
   async function handleCreateCliente() {
     const dadosParaCriar = {
       nome: novoCliente.nome,

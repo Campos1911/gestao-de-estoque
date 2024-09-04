@@ -6,17 +6,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { FuncionariosProps } from "@/@types";
 
-const SelectCargo = () => {
+const SelectCargo = ({
+  novoFuncionario,
+  setNovoFuncionario,
+}: {
+  novoFuncionario: FuncionariosProps;
+  setNovoFuncionario: React.Dispatch<React.SetStateAction<FuncionariosProps>>;
+}) => {
   return (
-    <Select>
+    <Select
+      onValueChange={(value) =>
+        setNovoFuncionario?.({
+          nome: novoFuncionario.nome,
+          cargo: value,
+        })
+      }
+    >
       <SelectTrigger className="sm:w-[42%] w-[60%] border border-blue-500 text-blue-500 outline-none">
         <SelectValue placeholder="Cargo do funcionário" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="light">Light</SelectItem>
-        <SelectItem value="dark">Dark</SelectItem>
-        <SelectItem value="system">System</SelectItem>
+        <SelectItem value="Admin">Admin</SelectItem>
+        <SelectItem value="Gestor">Gestor</SelectItem>
+        <SelectItem value="Repositor">Repositor</SelectItem>
       </SelectContent>
     </Select>
   );

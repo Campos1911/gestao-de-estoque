@@ -11,14 +11,39 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { SelectCargo } from "../Select";
+import { FuncionariosProps } from "@/@types";
 
 const CardFuncionarios = ({
   nome,
   cargo,
+  novoFuncionario,
+  setNovoFuncionario,
+  pessoas,
+  setPessoas,
 }: {
   nome: string;
   cargo?: string;
+  pessoas?: FuncionariosProps[];
+  novoFuncionario?: FuncionariosProps;
+  setPessoas?: React.Dispatch<React.SetStateAction<FuncionariosProps[]>>;
+  setNovoFuncionario?: React.Dispatch<React.SetStateAction<FuncionariosProps>>;
 }) => {
+  async function handleCreateFuncionario() {
+    const dadosParaCriar = {
+      nome: novoFuncionario?.nome,
+      cargo: novoFuncionario?.cargo,
+    };
+
+    await fetch("http://localhost:3000/funcionarios", {
+      method: "POST",
+      body: JSON.stringify(dadosParaCriar),
+    }).then(() => {
+      return setPessoas?.([
+        ...(pessoas as FuncionariosProps[]),
+        novoFuncionario as FuncionariosProps,
+      ]);
+    });
+  }
   if (nome === "Adicionar novo funcionário") {
     return (
       <Dialog>
@@ -40,17 +65,32 @@ const CardFuncionarios = ({
                   <input
                     type="text"
                     name="nome"
-                    id=""
+                    onChange={(e) =>
+                      setNovoFuncionario?.({
+                        nome: e.target.value,
+                        cargo: novoFuncionario?.cargo as string,
+                      })
+                    }
                     className="outline-none border border-blue-500 w-60 rounded-md p-1"
                   />
                 </div>
-                <SelectCargo />
+                <SelectCargo
+                  novoFuncionario={novoFuncionario as FuncionariosProps}
+                  setNovoFuncionario={
+                    setNovoFuncionario as React.Dispatch<
+                      React.SetStateAction<FuncionariosProps>
+                    >
+                  }
+                />
               </div>
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
             <DialogClose>
-              <button className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200">
+              <button
+                onClick={() => handleCreateFuncionario()}
+                className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200"
+              >
                 Criar
               </button>
             </DialogClose>

@@ -13,6 +13,10 @@ const Pessoas = () => {
     nome: "",
     regiao: "",
   });
+  const [novoFuncionario, setNovoFuncionario] = useState<FuncionariosProps>({
+    nome: "",
+    cargo: "",
+  });
   const [loaded, setLoaded] = useState<boolean>(false);
   useEffect(() => {
     fetch("http://localhost:3000/clientes", { method: "GET" })
@@ -51,7 +55,13 @@ const Pessoas = () => {
           value="gerencia"
           className="w-full flex flex-col md:grid lg:grid-cols-3 md:grid-cols-2 gap-3"
         >
-          <CardFuncionarios nome="Adicionar novo funcionário" />
+          <CardFuncionarios
+            nome="Adicionar novo funcionário"
+            pessoas={pessoas}
+            setPessoas={setPessoas}
+            novoFuncionario={novoFuncionario}
+            setNovoFuncionario={setNovoFuncionario}
+          />
           {pessoas.map((func, index) => (
             <CardFuncionarios key={index} nome={func.nome} cargo={func.cargo} />
           ))}
