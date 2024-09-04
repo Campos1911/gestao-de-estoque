@@ -3,104 +3,140 @@
     {
       "nome": "Nome do produto",
       "quantidade": 100,
-      "valor": "R$100,00"
+      "valor": "R$100,00",
+      "id": "4d70"
     },
     {
       "nome": "Nome do produto",
       "quantidade": 10,
-      "valor": "R$100,00"
+      "valor": "R$100,00",
+      "id": "9968"
     },
     {
       "nome": "Nome do produto",
       "quantidade": 0,
-      "valor": "R$100,00"
+      "valor": "R$100,00",
+      "id": "31f0"
     },
     {
       "nome": "Nome do produto",
       "quantidade": 10,
-      "valor": "R$100,00"
+      "valor": "R$100,00",
+      "id": "7fca"
     },
     {
       "nome": "Nome do produto",
       "quantidade": 10,
-      "valor": "R$100,00"
+      "valor": "R$100,00",
+      "id": "2034"
     },
     {
       "nome": "Nome do produto",
       "quantidade": 10,
-      "valor": "R$100,00"
+      "valor": "R$100,00",
+      "id": "3cd4"
     }
   ],
   "funcionarios": [
     {
       "nome": "Admin 1",
-      "cargo": "Admin"
+      "cargo": "Admin",
+      "id": "e62b"
     },
     {
       "nome": "Gestor 1",
-      "cargo": "Gestor"
+      "cargo": "Gestor",
+      "id": "59e6"
     },
     {
       "nome": "Repositor 1",
-      "cargo": "Repositor"
+      "cargo": "Repositor",
+      "id": "73bd"
     },
     {
       "nome": "Repositor 2",
-      "cargo": "Repositor"
+      "cargo": "Repositor",
+      "id": "51c0"
     }
   ],
   "clientes": [
     {
       "nome": "Cliente 1",
-      "regiao": "Região 1"
+      "regiao": "Região 1",
+      "id": "322d"
     },
     {
-      "nome": "Cliente 2",
+      "id": "bd2a",
+      "nome": "Criei",
       "regiao": "Região 2"
     },
     {
-      "nome": "Cliente 3",
+      "id": "3620",
+      "nome": "Reload",
+      "regiao": "Região 1"
+    },
+    {
+      "id": "d614",
+      "nome": "Rrr",
+      "regiao": "Região 1"
+    },
+    {
+      "id": "d2c1",
+      "nome": "Novinho",
       "regiao": "Região 3"
     },
     {
-      "nome": "Cliente 4",
-      "regiao": "Região 4"
+      "id": "cdea",
+      "nome": "Recharged",
+      "regiao": "Região 3"
+    },
+    {
+      "id": "44f2",
+      "nome": "Recharged",
+      "regiao": "Região 1"
     }
   ],
   "dashboard": [
     {
       "titulo": "Valor em caixa",
-      "dado": "R$15.000,00"
+      "dado": "R$15.000,00",
+      "id": "a4b1"
     },
     {
       "titulo": "Qtd. colaboradores",
-      "dado": "120"
+      "dado": "120",
+      "id": "bb4c"
     },
     {
       "titulo": "Última venda",
-      "dado": "R$150,00"
+      "dado": "R$150,00",
+      "id": "3a57"
     }
   ],
   "graficos": [
     {
       "corHex": "#3b82f6",
       "tema": "Presença hoje",
-      "porcentagem": 30
+      "porcentagem": 30,
+      "id": "c66a"
     },
     {
       "corHex": "#9333ea",
       "tema": "Meta de Vendas (mês)",
-      "porcentagem": 30
+      "porcentagem": 30,
+      "id": "f185"
     },
     {
       "corHex": "#c2410c",
       "tema": "Meta de Seguidores (mês)",
-      "porcentagem": 30
+      "porcentagem": 30,
+      "id": "c637"
     },
     {
       "corHex": "#15803d",
       "tema": "Meta Anual",
-      "porcentagem": 30
+      "porcentagem": 30,
+      "id": "72fc"
     }
   ],
   "user": {
