@@ -20,8 +20,8 @@ const Estoque = () => {
   }
 
   return (
-    <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
-      <p className="text-2xl">Estoque de Produtos</p>
+    <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 sm:gap-4 gap-4">
+      <p className="text-2xl sm:mt-0 mt-16">Estoque de Produtos</p>
       <div className="lg:grid flex flex-col grid-cols-2 lg:gap-6 gap-4 w-full">
         <CardCreateProduto />
         {produtos.map((produtos, index) => (
