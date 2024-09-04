@@ -17,7 +17,7 @@ const Header = () => {
       <p
         className={`bg-red-500 ${
           visibility ? "flex" : "hidden"
-        } absolute right-0 w-36 p-1`}
+        } absolute right-0 w-64 p-1`}
       >
         Menu
       </p>
