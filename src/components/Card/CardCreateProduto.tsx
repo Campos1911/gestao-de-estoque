@@ -30,6 +30,16 @@ const CardCreateProduto = ({
       valor: novoProduto.valor,
     };
 
+    if (
+      dadosParaCriar.nome === "" ||
+      dadosParaCriar.valor === "" ||
+      dadosParaCriar.quantidade < 0 ||
+      dadosParaCriar.quantidade > 9999
+    ) {
+      alert("Preencha todos os campos e insira valores válidos");
+      return null;
+    }
+
     await fetch("http://localhost:3000/produtos", {
       method: "POST",
       body: JSON.stringify(dadosParaCriar),
