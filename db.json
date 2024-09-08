@@ -9,7 +9,7 @@
     {
       "id": "1244",
       "nome": "Testando",
-      "quantidade": "9999",
+      "quantidade": 9999,
       "valor": "R$123"
     }
   ],

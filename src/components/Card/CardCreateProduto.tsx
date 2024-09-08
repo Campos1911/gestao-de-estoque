@@ -86,6 +86,7 @@ const CardCreateProduto = ({
                         nome: e.target.value,
                         quantidade: novoProduto.quantidade,
                         valor: novoProduto.valor,
+                        id: novoProduto.id,
                       })
                     }
                   />
@@ -101,6 +102,7 @@ const CardCreateProduto = ({
                         nome: novoProduto.nome,
                         quantidade: e.target.value as unknown as number,
                         valor: novoProduto.valor,
+                        id: novoProduto.id,
                       })
                     }
                   />
@@ -117,6 +119,7 @@ const CardCreateProduto = ({
                       nome: novoProduto.nome,
                       quantidade: novoProduto.quantidade,
                       valor: `R$${e.target.value}`,
+                      id: novoProduto.id,
                     })
                   }
                 />

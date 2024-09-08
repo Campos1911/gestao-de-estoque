@@ -12,6 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
+import { useToast } from "@/hooks/use-toast";
 const CardProdutos = ({
   nome,
   quantidade,
@@ -35,7 +36,7 @@ const CardProdutos = ({
   }, [quantidade]);
 
   const [novoEstoque, setNovoEstoque] = useState<number>(0);
-  const router = useRouter();
+  const { toast } = useToast();
 
   async function handleEditEstoque() {
     const dadosParaEditar = {
@@ -43,6 +44,17 @@ const CardProdutos = ({
       quantidade: novoEstoque,
       valor,
     };
+
+    if (novoEstoque > 9999) {
+      toast({
+        title: "Dados inválidos",
+        variant: "destructive",
+        description:
+          "Confira se todos os campos foram preenchidos ou se a quantidade não ultrapassou o limite (9999)",
+      });
+
+      return null;
+    }
 
     await fetch(`http://localhost:3000/produtos/${id}`, {
       method: "PATCH",
