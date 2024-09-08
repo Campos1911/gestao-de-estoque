@@ -1,6 +1,4 @@
 "use client";
-
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 import {
@@ -13,15 +11,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
+import { useRouter } from "next/navigation";
 const CardProdutos = ({
   nome,
   quantidade,
   valor,
+  id,
 }: {
   nome: string;
   quantidade: number;
   valor: string;
+  id: string;
 }) => {
   const [cor, setCor] = useState<string>("");
   useEffect(() => {
@@ -33,6 +33,22 @@ const CardProdutos = ({
       setCor("bg-yellow-500");
     }
   }, [quantidade]);
+
+  const [novoEstoque, setNovoEstoque] = useState<number>(0);
+  const router = useRouter();
+
+  async function handleEditEstoque() {
+    const dadosParaEditar = {
+      nome,
+      quantidade: novoEstoque,
+      valor,
+    };
+
+    await fetch(`http://localhost:3000/produtos/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify(dadosParaEditar),
+    }).then(() => window.location.reload());
+  }
 
   return (
     <>
@@ -56,6 +72,7 @@ const CardProdutos = ({
                 <div>
                   <input
                     type="number"
+                    onChange={(e) => setNovoEstoque(Number(e.target.value))}
                     className="outline-none border border-blue-500 w-full rounded-md p-1"
                   />
                 </div>
@@ -66,7 +83,7 @@ const CardProdutos = ({
           <DialogFooter>
             <DialogClose>
               <button
-                onClick={() => console.log("mudança")}
+                onClick={() => handleEditEstoque()}
                 className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200"
               >
                 Atualizar
