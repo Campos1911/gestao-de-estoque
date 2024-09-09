@@ -10,7 +10,7 @@ const Header = () => {
       <div className="bg-blue-500 h-16 px-5 flex sticky items-center justify-between">
         <p className="text-xl font-bold cursor-pointer">LOGO</p>
         <HamburgerMenuIcon
-          className="sm:hidden"
+          className="lg:hidden"
           onClick={() => setVisibility(!visibility)}
         />
       </div>
