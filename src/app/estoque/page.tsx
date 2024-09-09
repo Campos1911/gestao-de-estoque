@@ -12,6 +12,7 @@ const Estoque = () => {
     nome: "",
     quantidade: 0,
     valor: "",
+    id: "",
   });
   useEffect(() => {
     fetch("http://localhost:3000/produtos")
@@ -40,6 +41,7 @@ const Estoque = () => {
             nome={produtos.nome}
             quantidade={produtos.quantidade}
             valor={produtos.valor}
+            id={produtos.id}
           />
         ))}
       </div>

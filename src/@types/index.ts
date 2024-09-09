@@ -20,6 +20,7 @@ export interface ProdutosPros {
   nome: string;
   valor: string;
   quantidade: number;
+  id: string;
 }
 
 export interface DashboardProps {

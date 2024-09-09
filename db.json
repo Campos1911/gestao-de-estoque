@@ -3,13 +3,13 @@
     {
       "id": "9b8f",
       "nome": "Criei",
-      "quantidade": "1000",
+      "quantidade": 100,
       "valor": "R$129.30"
     },
     {
       "id": "1244",
       "nome": "Testando",
-      "quantidade": "9999",
+      "quantidade": 9999,
       "valor": "R$123"
     }
   ],
@@ -69,6 +69,11 @@
     {
       "id": "44f2",
       "nome": "Recharged",
+      "regiao": "Região 1"
+    },
+    {
+      "id": "9b24",
+      "nome": "Anthoni",
       "regiao": "Região 1"
     }
   ],
