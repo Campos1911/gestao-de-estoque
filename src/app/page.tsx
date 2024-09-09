@@ -39,29 +39,29 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full bg-white h-full rounded-tl-3xl p-6 gap-4">
-      <div className="w-full">
+      <div className="w-full flex flex-col mt-16 lg:mt-0">
         <p className="text-2xl">Seja bem-vindo, {user.nome}!</p>
-        <div className="text-lg text-gray-400 flex gap-1">
-          Você está olhando o sistema da{" "}
+        <div className="sm:text-lg text-gray-400 sm:flex sm:flex-row  gap-1">
+          Você está olhando o sistema da
           <p className="text-blue-500">loja 1!</p>
         </div>
       </div>
-      <div className="flex w-full py-5 justify-between">
+
+      <div className="sm:flex grid grid-cols-2 gap-2 w-full py-5 justify-between">
         {dashboard.map((dados, index) => (
           <CardDashboard key={index} titulo={dados.titulo} dado={dados.dado} />
         ))}
         <CardDashboard titulo="Sua permissão" dado={user.permissao} />
       </div>
+
       <div className="border border-blue-500 p-5 rounded-lg shadow-lg w-full flex">
-        <div className="flex justify-between w-full">
+        <div className="sm:flex grid grid-cols-2 gap-10 sm:justify-between w-full">
           {graficos.map((dados, index) => (
             <CircularProgress
               key={index}
               corHex={dados.corHex}
               tema={dados.tema}
               porcentagem={dados.porcentagem}
-              width="w-44"
-              height="h-44"
             />
           ))}
         </div>
