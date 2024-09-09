@@ -18,11 +18,6 @@
       "nome": "Repositor 1",
       "cargo": "Repositor",
       "id": "73bd"
-    },
-    {
-      "nome": "Repositor 2",
-      "cargo": "Repositor",
-      "id": "51c0"
     }
   ],
   "clientes": [
@@ -60,11 +55,6 @@
       "id": "4006",
       "nome": "Novinho",
       "regiao": "Região 1"
-    },
-    {
-      "id": "4dde",
-      "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "regiao": "Região 2"
     }
   ],
   "dashboard": [
