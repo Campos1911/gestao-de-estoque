@@ -61,10 +61,18 @@ const CardProdutos = ({
     }).then(() => window.location.reload());
   }
 
+  async function handleDeleteProduto() {
+    await fetch(`http://localhost:3000/produtos/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      window.location.reload();
+    });
+  }
+
   return (
     <>
       <Dialog>
-        <DialogTrigger className="outline-none flex w-full items-center justify-between border border-blue-500 rounded-md px-3 py-5 gap-4 shadow-lg cursor-pointer hover:bg-gray-300 duration-200">
+        <DialogTrigger className="relative outline-none flex w-full items-center justify-between border border-blue-500 rounded-md px-3 py-5 gap-4 shadow-lg cursor-pointer hover:bg-gray-300 duration-200">
           <div
             className={`flex rounded-full ${cor} w-10 h-10 items-center justify-center`}
           >
@@ -92,12 +100,18 @@ const CardProdutos = ({
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <DialogClose>
+            <DialogClose className="flex sm:flex-row flex-col items-center gap-3">
               <button
                 onClick={() => handleEditEstoque()}
                 className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200"
               >
                 Atualizar
+              </button>
+              <button
+                onClick={() => handleDeleteProduto()}
+                className="bg-blue-500 border border-blue-500 px-10 py-1 rounded-full text-white hover:bg-white hover:text-blue-500 duration-200"
+              >
+                Excluir
               </button>
             </DialogClose>
           </DialogFooter>

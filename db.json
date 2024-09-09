@@ -7,10 +7,10 @@
       "valor": "R$129.30"
     },
     {
-      "id": "1244",
-      "nome": "Testando",
-      "quantidade": 12,
-      "valor": "R$123"
+      "id": "490c",
+      "nome": "Testes",
+      "quantidade": "13",
+      "valor": "R$4123"
     }
   ],
   "funcionarios": [
@@ -55,6 +55,16 @@
       "id": "cdea",
       "nome": "Recharged",
       "regiao": "Região 3"
+    },
+    {
+      "id": "4006",
+      "nome": "Novinho",
+      "regiao": "Região 1"
+    },
+    {
+      "id": "4dde",
+      "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "regiao": "Região 2"
     }
   ],
   "dashboard": [
