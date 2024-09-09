@@ -37,7 +37,8 @@ const CardCreateProduto = ({
       dadosParaCriar.nome === "" ||
       dadosParaCriar.valor === "" ||
       dadosParaCriar.quantidade < 0 ||
-      dadosParaCriar.quantidade > 9999
+      dadosParaCriar.quantidade > 9999 ||
+      Number(dadosParaCriar.valor.replace("R$", "")) < 0
     ) {
       toast({
         title: "Dados inválidos",

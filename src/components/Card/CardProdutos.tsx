@@ -45,7 +45,7 @@ const CardProdutos = ({
       valor,
     };
 
-    if (novoEstoque > 9999) {
+    if (novoEstoque > 9999 || novoEstoque < 0) {
       toast({
         title: "Dados inválidos",
         variant: "destructive",
