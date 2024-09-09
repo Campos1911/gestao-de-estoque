@@ -19,10 +19,12 @@ const CardClientes = ({
   novoCliente,
   setNovoCliente,
   clientes,
+  id,
   setClientes,
 }: {
   nome: string;
   regiao?: string;
+  id?: string;
   novoCliente?: ClientesProps;
   setNovoCliente?: React.Dispatch<React.SetStateAction<ClientesProps>>;
   clientes?: ClientesProps[];
@@ -43,6 +45,14 @@ const CardClientes = ({
         novoCliente as ClientesProps,
       ])
     );
+  }
+
+  async function handleDeleteCliente() {
+    await fetch(`http://localhost:3000/clientes/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      window.location.reload();
+    });
   }
 
   if (nome === "Adicionar novo cliente") {
@@ -101,7 +111,13 @@ const CardClientes = ({
     );
   }
   return (
-    <div className="border border-blue-500 flex items-center rounded-md p-3 shadow-md cursor-default hover:bg-blue-500 duration-200 group gap-4">
+    <div className="border border-blue-500 flex items-center rounded-md p-3 shadow-md cursor-default hover:bg-blue-500 duration-200 group gap-4 relative">
+      <div
+        onClick={() => handleDeleteCliente()}
+        className="w-5 h-5 rounded-full absolute top-0 right-0 bg-red-500 flex items-center justify-center text-white cursor-pointer translate-x-1 translate-y-[-3px]"
+      >
+        x
+      </div>
       <div className="rounded-full w-10 h-10 bg-blue-500 text-white flex items-center justify-center group-hover:bg-white group-hover:text-blue-500">
         <FaUserAlt />
       </div>

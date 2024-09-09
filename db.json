@@ -15,16 +15,6 @@
   ],
   "funcionarios": [
     {
-      "nome": "Admin 1",
-      "cargo": "Admin",
-      "id": "e62b"
-    },
-    {
-      "nome": "Gestor 1",
-      "cargo": "Gestor",
-      "id": "59e6"
-    },
-    {
       "nome": "Repositor 1",
       "cargo": "Repositor",
       "id": "73bd"
@@ -65,16 +55,6 @@
       "id": "cdea",
       "nome": "Recharged",
       "regiao": "Região 3"
-    },
-    {
-      "id": "44f2",
-      "nome": "Recharged",
-      "regiao": "Região 1"
-    },
-    {
-      "id": "9b24",
-      "nome": "Anthoni",
-      "regiao": "Região 1"
     }
   ],
   "dashboard": [

@@ -9,11 +9,13 @@ export interface NavsProps {
 export interface FuncionariosProps {
   nome: string;
   cargo: string;
+  id?: string;
 }
 
 export interface ClientesProps {
   nome: string;
   regiao: string;
+  id?: string;
 }
 
 export interface ProdutosPros {

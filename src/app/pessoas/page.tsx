@@ -63,7 +63,12 @@ const Pessoas = () => {
             setNovoFuncionario={setNovoFuncionario}
           />
           {pessoas.map((func, index) => (
-            <CardFuncionarios key={index} nome={func.nome} cargo={func.cargo} />
+            <CardFuncionarios
+              key={index}
+              nome={func.nome}
+              cargo={func.cargo}
+              id={func.id}
+            />
           ))}
         </TabsContent>
         <TabsContent
@@ -78,7 +83,12 @@ const Pessoas = () => {
             setClientes={setClientes}
           />
           {clientes.map((func, index) => (
-            <CardClientes key={index} nome={func.nome} regiao={func.regiao} />
+            <CardClientes
+              key={index}
+              nome={func.nome}
+              regiao={func.regiao}
+              id={func.id}
+            />
           ))}
         </TabsContent>
       </Tabs>

@@ -16,12 +16,14 @@ import { FuncionariosProps } from "@/@types";
 const CardFuncionarios = ({
   nome,
   cargo,
+  id,
   novoFuncionario,
   setNovoFuncionario,
   pessoas,
   setPessoas,
 }: {
   nome: string;
+  id?: string;
   cargo?: string;
   pessoas?: FuncionariosProps[];
   novoFuncionario?: FuncionariosProps;
@@ -42,6 +44,14 @@ const CardFuncionarios = ({
         ...(pessoas as FuncionariosProps[]),
         novoFuncionario as FuncionariosProps,
       ]);
+    });
+  }
+
+  async function handleDeleteFuncionario() {
+    await fetch(`http://localhost:3000/funcionarios/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      window.location.reload();
     });
   }
   if (nome === "Adicionar novo funcionário") {
@@ -100,7 +110,13 @@ const CardFuncionarios = ({
     );
   }
   return (
-    <div className="border border-blue-500 flex items-center rounded-md p-3 shadow-md cursor-default hover:bg-blue-500 duration-200 group gap-4">
+    <div className="border border-blue-500 flex items-center rounded-md p-3 shadow-md cursor-default hover:bg-blue-500 duration-200 group gap-4 relative">
+      <div
+        onClick={() => handleDeleteFuncionario()}
+        className="w-5 h-5 rounded-full absolute top-0 right-0 bg-red-500 flex items-center justify-center text-white cursor-pointer translate-x-1 translate-y-[-3px]"
+      >
+        x
+      </div>
       <div className="rounded-full w-10 h-10 bg-blue-500 text-white flex items-center justify-center group-hover:bg-white group-hover:text-blue-500">
         <FaUserAlt />
       </div>
